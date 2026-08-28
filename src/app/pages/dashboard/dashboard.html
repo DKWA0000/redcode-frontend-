@@ -1,0 +1,60 @@
+<div class="dashboard-container">
+  
+  <!-- 🌟 Ny sektion som lägger rubriken och knappen jämte varandra -->
+  <div class="dashboard-header">
+    <h2>Mina Böcker</h2>
+    <button routerLink="/add-book" class="add-btn">+ Ny bok</button>
+  </div>
+
+  <div class="cards-grid">
+    <!-- Angular 20 Loop med inbyggt Empty-stöd -->
+    @for (book of books(); track book.id) {
+      
+      <!-- Action Card som går att klicka på -->
+      <div class="action-card" (click)="onCardClick(book)" tabindex="0">
+        <div class="card-content">
+          <h3>{{ book.title }}</h3>
+          <p class="author">Av: {{ book.author }}</p>
+
+          <!-- 🌟 HÄR LÄGGS DEN NYA CITAT-KNAPPEN IN -->
+          <div class="quote-action-container">
+            <button class="quote-btn" 
+                    [routerLink]="['/books', book.id, 'quotes']" 
+                    (click)="$event.stopPropagation()">
+              Visa citat
+            </button>
+          </div>
+        </div>
+        
+        <div class="card-footer">
+          <span class="date">Publicerad: {{ book.date | date:'yyyy-MM-dd' }}</span>
+          
+          <!-- 🛠️ Behållare för att gruppera åtgärdsknapparna till höger -->
+          <div class="footer-actions">
+            <!-- ✏️ Ny ändringsknapp (Länkar till /edit-book/ID) -->
+            <button class="edit-btn" 
+                [routerLink]="['/edit-book', book.id]" 
+                [state]="{ book: book }" 
+                (click)="$event.stopPropagation()" 
+                title="Redigera bok">
+                <fa-icon [icon]="iconEdit"></fa-icon>
+            </button>
+
+            <!-- 🗑️ Radera-knapp med papperskorgs-ikon (bevarad från tidigare) -->
+            <button class="delete-btn" (click)="deleteBook(book.id, $event)" title="Radera bok">
+              <fa-icon [icon]="iconTrash"></fa-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+
+    } @empty {
+      
+      <!-- Visas om listan från backend är helt tom -->
+      <div class="empty-state">
+        <p>Det finns inga böcker i listan just nu.</p>
+      </div>
+
+    }
+  </div>
+</div>

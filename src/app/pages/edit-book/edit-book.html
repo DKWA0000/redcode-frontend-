@@ -1,0 +1,30 @@
+<div class="form-container">
+  <!-- 🌟 ID är dolt från rubriken -->
+  <h2>Redigera bok</h2>
+
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="title">Bokens titel (valfri)</label>
+      <!-- 🌟 Lägg till parenteser () för att läsa av din Signal dynamiskt -->
+      <input type="text" id="title" formControlName="title" [placeholder]="currentBookTitle()" />
+    </div>
+
+    <div class="form-group">
+      <label for="author">Författare (valfri)</label>
+      <!-- 🌟 Lägg till parenteser () för att läsa av din Signal dynamiskt -->
+      <input type="text" id="author" formControlName="author" [placeholder]="currentBookAuthor()" />
+    </div>
+
+    <div class="form-group">
+      <label for="date">Publiceringsdatum (valfritt)</label>
+      <input type="date" id="date" formControlName="date" />
+    </div>
+
+    <div class="button-group">
+      <button type="button" routerLink="/dashboard" class="cancel-btn">Avbryt</button>
+      <button type="submit" class="save-btn">Spara ändringar</button>
+    </div>
+
+  </form>
+</div>

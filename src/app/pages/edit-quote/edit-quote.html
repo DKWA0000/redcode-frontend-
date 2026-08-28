@@ -1,0 +1,26 @@
+<!-- src/app/pages/edit-quote/edit-quote.html -->
+<div class="edit-quote-container">
+  
+  <h2>Redigera citat</h2>
+  <p class="subtitle">Nuvarande: "{{ currentQuoteText() }}"</p>
+
+  <form [formGroup]="quoteForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="quote">Citattext:</label>
+      <textarea 
+        id="quote" 
+        formControlName="quote" 
+        placeholder="Ändra citatet här..." 
+        rows="5"
+        required>
+      </textarea>
+    </div>
+    <div class="button-group">
+    <button [routerLink]="['/books', bookId, 'quotes']" class="back-btn"> Avbryt</button>
+    <button type="submit" class="save-btn" [disabled]="!quoteForm.value.quote?.trim()">
+      Spara ändringar
+    </button>
+    </div>
+    <!-- 🌟 RÄTTNING: Ändrat från id() till bookId (utan parenteser eftersom det är en vanlig sträng) -->
+  </form>
+</div>

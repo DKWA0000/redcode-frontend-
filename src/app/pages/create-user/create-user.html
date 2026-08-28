@@ -1,0 +1,34 @@
+<div class="register-container">
+  <h2>Skapa nytt konto</h2>
+
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <!-- 🌟 E-postfält istället för användarnamn -->
+    <div class="form-group">
+      <label for="email">E-postadress:</label>
+      <input 
+        id="email" 
+        type="email" 
+        formControlName="email" 
+        placeholder="Skriv din e-postadress" />
+      @if (registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['email']) {
+        <small class="error-text">Vänligen ange en giltig e-postadress.</small>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="password">Lösenord:</label>
+      <input 
+        id="password" 
+        type="password" 
+        formControlName="password" 
+        placeholder="Välj ett säkert lösenord (minst 6 tecken)" />
+    </div>
+
+    <div class="actions">
+      <button type="submit" class="register-btn" [disabled]="registerForm.invalid">
+        Registrera
+      </button>
+      <a routerLink="/login" class="back-link">Tillbaka till inloggning</a>
+    </div>
+  </form>
+</div>

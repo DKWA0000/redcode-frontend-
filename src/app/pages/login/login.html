@@ -1,0 +1,43 @@
+<div class="login-container">
+  <h2>Login to Redcode</h2>
+  <!-- 1. Bind the HTML form to our TypeScript formGroup object -->
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    
+    <!-- Email Field -->
+    <div class="input-group">
+      <fa-icon [icon]="iconEmail" class="field-icon"></fa-icon>
+      <input 
+        type="email" 
+        formControlName="email" 
+        placeholder="Enter your email"
+        [class.is-invalid]="emailInvalid" />
+    </div>
+    @if (emailInvalid) {
+      <small class="error-text">Please enter a valid email address.</small>
+    }
+
+    <!-- Password Field -->
+    <div class="input-group">
+      <fa-icon [icon]="iconLock" class="field-icon"></fa-icon>
+      <input 
+        type="password" 
+        formControlName="password" 
+        placeholder="Enter your password"
+        [class.is-invalid]="passwordInvalid" />
+    </div>
+    @if (passwordInvalid) {
+      <small class="error-text">Password must be at least 6 characters long.</small>
+    }
+
+    <!-- Submit Button -->
+    <!-- The button remains disabled until both fields pass validation rules -->
+    <button type="submit" [disabled]="loginForm.invalid">
+      Log In
+    </button>
+
+  </form>
+  <div class="register-redirect">
+    <!-- 🌟 Den nya knappen/länken -->
+    <button routerLink="/register" class="secondary-btn">Skapa ett konto</button>
+  </div>
+</div>

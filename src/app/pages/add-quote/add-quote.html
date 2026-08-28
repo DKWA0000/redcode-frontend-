@@ -1,0 +1,24 @@
+<div class="add-quote-container">
+  <!-- Länk tillbaka till citatsidan -->
+  <a [routerLink]="['/books', bookId(), 'quotes']" class="back-btn">← Avbryt</a>
+
+  <h2>Lägg till nytt citat</h2>
+
+  <form (ngSubmit)="saveQuote()">
+    <div class="form-group">
+      <label for="quote">Citattext:</label>
+      <textarea 
+        id="quote" 
+        [(ngModel)]="quoteText" 
+        name="quote" 
+        placeholder="Skriv citatet här..." 
+        rows="5"
+        required>
+      </textarea>
+    </div>
+
+    <button type="submit" class="save-btn" [disabled]="!quoteText().trim()">
+      Spara citat
+    </button>
+  </form>
+</div>
