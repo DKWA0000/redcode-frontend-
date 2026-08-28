@@ -1,0 +1,40 @@
+<div class="quotes-container">
+  
+  <div class="dashboard-header">
+    <h2>Citat från boken</h2>
+    <button [routerLink]="['/books', id(), 'add-quote']" class="add-btn">+ Nytt citat</button>
+  </div>
+
+  <a routerLink="/dashboard" class="back-btn">← Tillbaka till böcker</a>
+  
+  @if (quotes().length === 0) {
+    <p class="no-quotes">Inga citat hittades för denna bok.</p>
+  } @else {
+    <ul class="quotes-list">
+      @for (item of quotes(); track item.quoteId) {
+        
+        <li class="quote-item">
+          <div class="quote-content">
+            <blockquote class="quote-text">"{{ item.quote }}"</blockquote>
+          </div>
+          
+          <div class="footer-actions">
+            <!-- ✏️ Skickar med det nya unika quoteId till URL och state -->
+            <button class="edit-btn" 
+                [routerLink]="['/books', id(), 'edit-quote', item.quoteId]" 
+                [state]="{ quote: item }" 
+                title="Redigera citat">
+                <fa-icon [icon]="iconEdit"></fa-icon>
+            </button>
+
+            <!-- 🗑️ Radera-knapp -->
+            <button class="delete-btn" (click)="deleteQuote(item, $event)" title="Radera citat">
+              <fa-icon [icon]="iconTrash"></fa-icon>
+            </button>
+          </div>
+        </li>
+
+      }
+    </ul>
+  }
+</div>

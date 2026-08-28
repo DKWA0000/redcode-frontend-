@@ -1,0 +1,28 @@
+<div class="form-container">
+  <h2>Lägg till ny bok</h2>
+
+  <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
+    
+    <div class="form-group">
+      <label for="title">Bokens titel</label>
+      <input type="text" id="title" formControlName="title" placeholder="T.ex. Liftarens guide till galaxen" />
+    </div>
+
+    <div class="form-group">
+      <label for="author">Författare</label>
+      <input type="text" id="author" formControlName="author" placeholder="T.ex. Douglas Adams" />
+    </div>
+
+    <!-- 📅 Nytt fält för publiceringsdatum -->
+    <div class="form-group">
+      <label for="date">Publiceringsdatum</label>
+      <input type="date" id="date" formControlName="date" />
+    </div>
+
+    <div class="button-group">
+      <button type="button" routerLink="/dashboard" class="cancel-btn">Avbryt</button>
+      <button type="submit" [disabled]="bookForm.invalid" class="save-btn">Spara bok</button>
+    </div>
+
+  </form>
+</div>
