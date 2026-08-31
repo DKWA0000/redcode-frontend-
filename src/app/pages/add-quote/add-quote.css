@@ -30,11 +30,10 @@ textarea {
 }
 
 textarea:focus {
-  border-color: #007bff; /* Gör ramen blå vid klick */
+  border-color: #007bff; 
   outline: none;
 }
 
-/* Skapar flexbox-raden */
 .button-group {
   display: flex;       
   gap: 12px;           
@@ -42,12 +41,11 @@ textarea:focus {
   align-items: center; 
 }
 
-/* Den blåa sparaknappen som alltid är aktiv */
 .save-btn {
   padding: 10px 20px;
-  background-color: #007bff; /* Helt blå */
+  background-color: #007bff; 
   color: white;
-  border: none;              /* Helt slät */
+  border: none;              
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
@@ -56,14 +54,13 @@ textarea:focus {
 }
 
 .save-btn:hover {
-  background-color: #0056b3; /* Blir mörkare blå vid hovring */
+  background-color: #0056b3; 
 }
 
 .save-btn:active {
-  transform: scale(0.98); /* Klickeffekt */
+  transform: scale(0.98); 
 }
 
-/* Exakt samma gråa avbryt-knapp som på redigera-sidan */
 .back-btn {
   display: inline-block;
   padding: 10px 20px;

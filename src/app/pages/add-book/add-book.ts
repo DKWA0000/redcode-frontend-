@@ -15,16 +15,14 @@ export class AddBook {
   private http = inject(HttpClient);
   private router = inject(Router);
 
-  // 1. Lagt till 'date' i formulärstrukturen
   bookForm = this.fb.group({
     title: ['', Validators.required],
     author: ['', Validators.required],
-    date: ['', Validators.required] // 👈 Nytt obligatoriskt datumfält
+    date: ['', Validators.required] 
   });
 
   onSubmit() {
     if (this.bookForm.valid) {
-      // 2. Hämta alla värden direkt från formuläret
       const newBook = this.bookForm.getRawValue();
 
       console.log('Sparar ny bok med valt datum i backend...', newBook);

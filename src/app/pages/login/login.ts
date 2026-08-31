@@ -43,13 +43,10 @@ export class Login {
       
       console.log('Skickar loginuppgifter till backend...', loginCredentials);
 
-      // 🌟 Skicka anropet och lägg till { withCredentials: true }
       this.http.post<any>('person/loginuser', loginCredentials, { withCredentials: true }).subscribe({
-       // Inne i din login.ts (under next-blocket för person/loginuser):
     next: (response) => {
       console.log('Inloggning lyckades!');
   
-  // Sätt flaggan som vår nya guard letar efter 🌟
       sessionStorage.setItem('is_logged_in', 'true');
 
       this.router.navigate(['/dashboard']);

@@ -1,19 +1,16 @@
 <div class="container dashboard-container my-5">
   
-  <!-- Header -->
   <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
     <h2 class="m-0">Mina Böcker</h2>
     <button routerLink="/add-book" class="add-btn">+ Ny bok</button>
   </div>
 
-  <!-- Vertikal lista av kompakta Action Cards -->
   <div class="cards-list">
     
     @for (book of books(); track book.id) {
       
       <div class="action-card" (click)="onCardClick(book)" tabindex="0">
         
-        <!-- Text-innehåll till vänster -->
         <div class="card-body-content">
           <h3 class="book-title text-truncate" [title]="book.title">{{ book.title }}</h3>
           
@@ -23,17 +20,13 @@
           </div>
         </div>
         
-        <!-- Knappar till höger -->
         <div class="card-actions" (click)="$event.stopPropagation()">
           
-          <!-- Visa citat-knapp -->
           <button class="quote-btn" [routerLink]="['/books', book.id, 'quotes']">
             Visa citat
           </button>
           
-          <!-- Ikonknappar -->
           <div class="action-icons">
-            <!-- Ändra-knapp -->
             <button class="edit-btn" 
                     [routerLink]="['/edit-book', book.id]" 
                     [state]="{ book: book }" 
@@ -41,7 +34,6 @@
               <fa-icon [icon]="iconEdit"></fa-icon>
             </button>
 
-            <!-- Radera-knapp -->
             <button class="delete-btn" (click)="deleteBook(book.id, $event)" title="Radera bok">
               <fa-icon [icon]="iconTrash"></fa-icon>
             </button>

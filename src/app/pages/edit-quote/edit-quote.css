@@ -39,7 +39,7 @@ textarea {
 }
 
 textarea:focus {
-  border-color: #007bff; /* Matchar din blåa sparaknapp vid klick */
+  border-color: #007bff;
   outline: none;
 }
 
@@ -50,13 +50,12 @@ textarea:focus {
   align-items: center; 
 }
 
-/* Din uppdaterade, enhetliga avbryt-knapp */
 .back-btn {
   display: inline-block;
   padding: 10px 20px;
   background-color: #f8f9fa;
   color: #333;
-  border: 1px solid #ccc; /* Liten subtil ram så den syns mot vit bakgrund */
+  border: 1px solid #ccc; 
   border-radius: 4px;
   font-size: 1rem;
   font-weight: bold;
@@ -68,8 +67,8 @@ textarea:focus {
 }
 
 .back-btn:hover {
-  background-color: #5a6268; /* Mörkare grå vid hover */
-  color: white;              /* Gör texten vit så den syns mot den mörka bakgrunden */
+  background-color: #5a6268;
+  color: white;              
   text-decoration: none; 
 }
 
@@ -77,7 +76,6 @@ textarea:focus {
   transform: scale(0.98);
 }
 
-/* Din existerande spara-knapp */
 .save-btn {
   padding: 10px 20px;
   background-color: #007bff; 
@@ -91,11 +89,11 @@ textarea:focus {
 }
 
 .save-btn:hover:not(:disabled) {
-  background-color: #0056b3; /* Blir lite mörkare blå vid hover */
+  background-color: #0056b3;
 }
 
 .save-btn:active:not(:disabled) {
-  transform: scale(0.98); /* La till din snygga klick-effekt även här! */
+  transform: scale(0.98); 
 }
 
 .save-btn:disabled {

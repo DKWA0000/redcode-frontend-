@@ -5,7 +5,7 @@ import { FaIconComponent } from '@fortawesome/angular-fontawesome';
 import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons';
 
 interface Quote {
-  quoteId: number; // 🌟 Uppdaterat till det nya ID-fältet från din backend
+  quoteId: number;
   bookid: number;
   quote: string;
 }
@@ -46,7 +46,6 @@ export class ShowQuotes {
     event.stopPropagation();
 
     if (confirm('Är du säker på att du vill radera detta citat?')) {
-      // 🌟 Skickar det unika quoteId vid radering
       this.http.delete(`quote/${quoteItem.quoteId}`).subscribe({
         next: () => {
           this.quotes.update(current => current.filter(q => q.quoteId !== quoteItem.quoteId));

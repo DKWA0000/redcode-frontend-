@@ -5,11 +5,10 @@
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   font-family: sans-serif;
-  background: #ffffff; /* La till vit bakgrund på kortet */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* En subtil skugga */
+  background: #ffffff; 
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
 }
 
-/* Ändrat namn från .input-group för att inte krocka med Bootstrap */
 .login-input-group {
   display: flex;
   align-items: center;
@@ -38,7 +37,6 @@
   font-size: 16px;
 }
 
-/* Om fältet är ogiltigt färgas hela din behållare röd samt dess ram */
 .login-input-group.is-invalid {
   background-color: #fff8f8;
   border-color: #dc3545;
@@ -51,7 +49,6 @@
   margin-top: 4px;
 }
 
-/* Styla inloggningsknappen via en unik klass så den inte krockar med andra knappar */
 .login-btn {
   width: 100%;
   padding: 12px;
@@ -75,14 +72,13 @@
   cursor: not-allowed;
 }
 
-/* "Skapa ett konto"-länken i botten */
 .secondary-btn {
   background: none;
   border: none;
   color: #007bff;
   font-size: 0.9rem;
   cursor: pointer;
-  width: auto; /* Tar bort 100% bredd så den inte sträcker ut sig */
+  width: auto; 
   margin-top: 0;
   padding: 0;
 }

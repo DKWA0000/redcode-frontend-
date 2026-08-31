@@ -1,5 +1,5 @@
 .dashboard-container {
-  max-width: 800px; /* Gjorde behållaren lite smalare eftersom det är en vertikal lista nu */
+  max-width: 800px;
   margin: 0 auto;
 }
 
@@ -7,12 +7,11 @@ h2 {
   color: #333;
 }
 
-/* Grön "+ Ny bok"-knapp */
 .add-btn {
   background-color: #28a745;
   color: white;
   border: none;
-  padding: 8px 16px; /* Något mer kompakt */
+  padding: 8px 16px; 
   font-size: 15px;
   border-radius: 4px;
   cursor: pointer;
@@ -24,21 +23,19 @@ h2 {
   background-color: #218838;
 }
 
-/* 🌟 ÄNDRING: Vertikal lista istället för rutnät */
 .cards-list {
   display: flex;
   flex-direction: column;
-  gap: 12px; /* Lagom avstånd mellan korten i höjdled */
+  gap: 12px; 
 }
 
-/* 🌟 ÄNDRING: Kompakt Action Card (Hälften så stort i vertikalled) */
 .action-card {
   background-color: #fff;
   border: 1px solid #dee2e6;
   border-radius: 6px;
-  padding: 12px 16px; /* Minskad padding för att halvera höjden */
+  padding: 12px 16px; 
   display: flex;
-  flex-direction: row; /* Ändrat till rad så att text och knappar ligger bredvid varandra */
+  flex-direction: row; 
   align-items: center;
   justify-content: space-between;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.05);
@@ -47,29 +44,27 @@ h2 {
 }
 
 .action-card:hover, .action-card:focus {
-  transform: translateX(4px); /* Snygg "skjut i sidled"-effekt istället för lyft när det är en lista */
+  transform: translateX(4px); 
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   border-color: #007bff;
   outline: none;
 }
 
-/* Textbehållare som håller ihop titel, författare och datum */
 .card-body-content {
   display: flex;
   flex-direction: column;
-  gap: 2px; /* Minimalt avstånd mellan textraderna */
+  gap: 2px; 
   min-width: 0;
   flex-grow: 1;
 }
 
 .book-title {
   color: #222;
-  font-size: 1.05rem; /* Något mer kompakt text */
+  font-size: 1.05rem; 
   font-weight: 600;
   margin: 0;
 }
 
-/* Kombinerad info för författare och datum för att spara vertikalt utrymme */
 .book-meta {
   display: flex;
   gap: 15px;
@@ -86,7 +81,6 @@ h2 {
   margin: 0;
 }
 
-/* 🌟 ÄNDRING: Knapparna ligger nu till höger istället för i botten */
 .card-actions {
   display: flex;
   align-items: center;
@@ -95,7 +89,6 @@ h2 {
   flex-shrink: 0;
 }
 
-/* "Visa citat"-knappen */
 .quote-btn {
   padding: 5px 12px;
   background-color: #007bff;
@@ -112,13 +105,11 @@ h2 {
   background-color: #0056b3;
 }
 
-/* Gruppering för ändra/radera */
 .action-icons {
   display: flex;
   gap: 2px;
 }
 
-/* Ikonknappar */
 .edit-btn, .delete-btn {
   background: transparent;
   border: none;

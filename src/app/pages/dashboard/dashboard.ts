@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { DatePipe } from '@angular/common'; 
 import { RouterLink } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome'; 
-import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons'; // 👈 1. Importera även faPen här
+import { faTrash, faPen } from '@fortawesome/free-solid-svg-icons'; 
 
 interface Book {
   id: number;
@@ -24,7 +24,7 @@ export class Dashboard implements OnInit {
   books = signal<Book[]>([]);
 
   iconTrash = faTrash;
-  iconEdit = faPen; // 👈 2. Gör penn-ikonen tillgänglig för din HTML-mall
+  iconEdit = faPen; 
 
   ngOnInit() {
     this.fetchBooks();
