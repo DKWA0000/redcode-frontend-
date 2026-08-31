@@ -1,24 +1,33 @@
-<div class="add-quote-container">
-  <!-- Länk tillbaka till citatsidan -->
-  <a [routerLink]="['/books', bookId(), 'quotes']" class="back-btn">← Avbryt</a>
-
-  <h2>Lägg till nytt citat</h2>
+<div class="container add-quote-container my-5">
+  
+  <h2 class="mb-4">Lägg till nytt citat</h2>
 
   <form (ngSubmit)="saveQuote()">
-    <div class="form-group">
-      <label for="quote">Citattext:</label>
+    
+    <div class="form-group mb-4">
+      <label for="quote" class="d-block mb-2">Citattext:</label>
       <textarea 
         id="quote" 
         [(ngModel)]="quoteText" 
         name="quote" 
+        class="w-100"
         placeholder="Skriv citatet här..." 
         rows="5"
         required>
       </textarea>
     </div>
 
-    <button type="submit" class="save-btn" [disabled]="!quoteText().trim()">
-      Spara citat
-    </button>
+    <div class="button-group">
+      
+      <!-- 🌟 UPPDATERAD: [disabled] är helt borttagen nu -->
+      <button type="submit" class="save-btn">
+        Spara citat
+      </button>
+
+      <button type="button" [routerLink]="['/books', bookId(), 'quotes']" class="back-btn">
+        Avbryt
+      </button>
+
+    </div>
   </form>
 </div>

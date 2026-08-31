@@ -22,6 +22,11 @@ input {
   box-sizing: border-box;
 }
 
+input:focus {
+  border-color: #28a745; /* Tips: Gör ramen grön vid klick för att matcha din knapp! */
+  outline: none;
+}
+
 .error-text {
   color: #dc3545;
   font-size: 0.8rem;
@@ -46,6 +51,11 @@ input {
   border-radius: 4px;
   font-weight: bold;
   cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.register-btn:hover:not(:disabled) {
+  background-color: #218838; /* Blir lite mörkare grön när man hovrar */
 }
 
 .register-btn:disabled { background-color: #ccc; cursor: not-allowed; }

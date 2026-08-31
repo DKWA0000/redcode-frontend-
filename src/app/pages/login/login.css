@@ -5,9 +5,12 @@
   border: 1px solid #e0e0e0;
   border-radius: 8px;
   font-family: sans-serif;
+  background: #ffffff; /* La till vit bakgrund på kortet */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* En subtil skugga */
 }
 
-.input-group {
+/* Ändrat namn från .input-group för att inte krocka med Bootstrap */
+.login-input-group {
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
@@ -15,9 +18,10 @@
   margin-top: 15px;
   padding: 8px 12px;
   background: #fff;
+  transition: border-color 0.2s;
 }
 
-.input-group:focus-within {
+.login-input-group:focus-within {
   border-color: #007bff;
 }
 
@@ -27,15 +31,17 @@
   width: 16px;
 }
 
-.input-group input {
+.login-input-group input {
   border: none;
   outline: none;
   width: 100%;
   font-size: 16px;
 }
 
-.is-invalid {
+/* Om fältet är ogiltigt färgas hela din behållare röd samt dess ram */
+.login-input-group.is-invalid {
   background-color: #fff8f8;
+  border-color: #dc3545;
 }
 
 .error-text {
@@ -45,7 +51,8 @@
   margin-top: 4px;
 }
 
-button {
+/* Styla inloggningsknappen via en unik klass så den inte krockar med andra knappar */
+.login-btn {
   width: 100%;
   padding: 12px;
   background: #007bff;
@@ -55,9 +62,31 @@ button {
   font-size: 16px;
   cursor: pointer;
   margin-top: 20px;
+  font-weight: bold;
+  transition: background-color 0.2s;
 }
 
-button:disabled {
+.login-btn:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.login-btn:disabled {
   background: #cccccc;
   cursor: not-allowed;
+}
+
+/* "Skapa ett konto"-länken i botten */
+.secondary-btn {
+  background: none;
+  border: none;
+  color: #007bff;
+  font-size: 0.9rem;
+  cursor: pointer;
+  width: auto; /* Tar bort 100% bredd så den inte sträcker ut sig */
+  margin-top: 0;
+  padding: 0;
+}
+
+.secondary-btn:hover {
+  text-decoration: underline;
 }

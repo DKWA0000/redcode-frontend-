@@ -1,33 +1,5 @@
 /* edit-quote.css */
 
-/* 🌟 Detta ger din avbryt-knapp ett riktigt, enhetligt knapputseende */
-.back-btn {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #f8f9fa;
-  color: #333;
-  border: none;
-  border-radius: 4px;
-  font-size: 1rem;
-  font-weight: bold;
-  font-family: inherit;
-  cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-  margin-left: 10px; /* Lägger lite avstånd mellan Spara- och Avbryt-knappen */
-}
-
-/* Hover-effekt för avbryt-knappen */
-.back-btn:hover {
-  background-color: #5a6268; /* Mörkare grå vid hover */
-  text-decoration: none; /* Tar bort eventuell understrykning */
-}
-
-/* Klick-effekt */
-.back-btn:active {
-  transform: scale(0.98);
-}
-
-/* --- Dina befintliga stilar för resten av formuläret --- */
 .edit-quote-container {
   max-width: 500px;
   margin: 40px auto;
@@ -66,29 +38,67 @@ textarea {
   box-sizing: border-box;
 }
 
+textarea:focus {
+  border-color: #007bff; /* Matchar din blåa sparaknapp vid klick */
+  outline: none;
+}
+
+.button-group {
+  display: flex;       
+  gap: 12px;           
+  margin-top: 20px;    
+  align-items: center; 
+}
+
+/* Din uppdaterade, enhetliga avbryt-knapp */
+.back-btn {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  color: #333;
+  border: 1px solid #ccc; /* Liten subtil ram så den syns mot vit bakgrund */
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: bold;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.2s ease, transform 0.1s ease, color 0.2s ease;
+}
+
+.back-btn:hover {
+  background-color: #5a6268; /* Mörkare grå vid hover */
+  color: white;              /* Gör texten vit så den syns mot den mörka bakgrunden */
+  text-decoration: none; 
+}
+
+.back-btn:active {
+  transform: scale(0.98);
+}
+
 /* Din existerande spara-knapp */
 .save-btn {
   padding: 10px 20px;
-  background-color: #007bff; /* Blå */
+  background-color: #007bff; 
   color: white;
   border: none;
   border-radius: 4px;
   font-size: 1rem;
   cursor: pointer;
   font-weight: bold;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.save-btn:hover:not(:disabled) {
+  background-color: #0056b3; /* Blir lite mörkare blå vid hover */
+}
+
+.save-btn:active:not(:disabled) {
+  transform: scale(0.98); /* La till din snygga klick-effekt även här! */
 }
 
 .save-btn:disabled {
   background-color: #cccccc;
   cursor: not-allowed;
 }
-
-/* edit-quote.css */
-
-.button-group {
-  display: flex;       /* Aktiverar flexbox så knapparna hamnar på rad */
-  gap: 12px;           /* 🌟 Detta skapar ett perfekt mellanrum mellan knapparna! */
-  margin-top: 20px;    /* Ger lite luft uppåt till textrutan */
-  align-items: center; /* Centrerar knapparna vertikalt om de skulle ha olika höjd */
-}
-

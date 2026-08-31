@@ -1,8 +1,10 @@
-<div class="register-container">
+<!-- my-5 ger marginal uppe och nere, container sätter grunden -->
+<div class="container register-container my-5">
   <h2>Skapa nytt konto</h2>
 
   <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-    <!-- 🌟 E-postfält istället för användarnamn -->
+    
+    <!-- 📧 E-postfält -->
     <div class="form-group">
       <label for="email">E-postadress:</label>
       <input 
@@ -10,11 +12,14 @@
         type="email" 
         formControlName="email" 
         placeholder="Skriv din e-postadress" />
+      
       @if (registerForm.get('email')?.touched && registerForm.get('email')?.errors?.['email']) {
+        <!-- Vi behåller din klockrena error-text-klass här -->
         <small class="error-text">Vänligen ange en giltig e-postadress.</small>
       }
     </div>
 
+    <!-- 🔑 Lösenordsfält -->
     <div class="form-group">
       <label for="password">Lösenord:</label>
       <input 
@@ -24,6 +29,7 @@
         placeholder="Välj ett säkert lösenord (minst 6 tecken)" />
     </div>
 
+    <!-- 🔘 Actions (Använder din egna flex-layout från CSS) -->
     <div class="actions">
       <button type="submit" class="register-btn" [disabled]="registerForm.invalid">
         Registrera

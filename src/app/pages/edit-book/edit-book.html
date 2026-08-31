@@ -1,27 +1,27 @@
-<div class="form-container">
-  <!-- 🌟 ID är dolt från rubriken -->
+<!-- Vi använder Bootstraps 'container' och marginaler för placeringen, men din klass för utseendet -->
+<div class="container form-container my-5">
   <h2>Redigera bok</h2>
 
   <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
     
-    <div class="form-group">
-      <label for="title">Bokens titel (valfri)</label>
-      <!-- 🌟 Lägg till parenteser () för att läsa av din Signal dynamiskt -->
-      <input type="text" id="title" formControlName="title" [placeholder]="currentBookTitle()" />
+    <!-- mb-3 ger ett jämnt och bra avstånd nedåt mellan fälten -->
+    <div class="form-group mb-3">
+      <label for="title" class="d-block mb-2">Bokens titel (valfri)</label>
+      <input type="text" id="title" formControlName="title" class="w-100" [placeholder]="currentBookTitle()" />
     </div>
 
-    <div class="form-group">
-      <label for="author">Författare (valfri)</label>
-      <!-- 🌟 Lägg till parenteser () för att läsa av din Signal dynamiskt -->
-      <input type="text" id="author" formControlName="author" [placeholder]="currentBookAuthor()" />
+    <div class="form-group mb-3">
+      <label for="author" class="d-block mb-2">Författare (valfri)</label>
+      <input type="text" id="author" formControlName="author" class="w-100" [placeholder]="currentBookAuthor()" />
     </div>
 
-    <div class="form-group">
-      <label for="date">Publiceringsdatum (valfritt)</label>
-      <input type="date" id="date" formControlName="date" />
+    <div class="form-group mb-4">
+      <label for="date" class="d-block mb-2">Publiceringsdatum (valfritt)</label>
+      <input type="date" id="date" formControlName="date" class="w-100" />
     </div>
 
-    <div class="button-group">
+    <!-- d-flex och justify-content-end flyttar knapparna till höger, gap-2 sätter ett snyggt mellanrum -->
+    <div class="d-flex justify-content-end gap-2 mt-4">
       <button type="button" routerLink="/dashboard" class="cancel-btn">Avbryt</button>
       <button type="submit" class="save-btn">Spara ändringar</button>
     </div>

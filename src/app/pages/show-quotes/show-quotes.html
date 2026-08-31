@@ -1,25 +1,30 @@
-<div class="quotes-container">
+<div class="container quotes-container my-5">
   
-  <div class="dashboard-header">
-    <h2>Citat från boken</h2>
+  <!-- d-flex lägger rubrik och knapp bredvid varandra, justify-content-between trycker ut dem till kanterna -->
+  <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
+    <h2 class="m-0">Citat från boken</h2>
     <button [routerLink]="['/books', id(), 'add-quote']" class="add-btn">+ Nytt citat</button>
   </div>
 
-  <a routerLink="/dashboard" class="back-btn">← Tillbaka till böcker</a>
+  <!-- d-inline-block matchar din länkstruktur, mb-4 ger avstånd ner till listan -->
+  <a routerLink="/dashboard" class="back-btn d-inline-block mb-4">← Tillbaka till böcker</a>
   
   @if (quotes().length === 0) {
-    <p class="no-quotes">Inga citat hittades för denna bok.</p>
+    <!-- p-4, text-center och text-muted ger ett mjukt och luftigt intryck på meddelandet -->
+    <p class="no-quotes text-center p-4 border rounded bg-light text-muted">Inga citat hittades för denna bok.</p>
   } @else {
-    <ul class="quotes-list">
+    <!-- list-unstyled tar bort Bootstraps standard-punkter/bullets från ul-listor -->
+    <ul class="quotes-list list-unstyled d-flex flex-column gap-3">
       @for (item of quotes(); track item.quoteId) {
         
-        <li class="quote-item">
-          <div class="quote-content">
-            <blockquote class="quote-text">"{{ item.quote }}"</blockquote>
+        <!-- d-flex och justify-content-between lägger citatet till vänster och ikonerna till höger -->
+        <li class="quote-item d-flex justify-content-between align-items-center p-3 border rounded shadow-sm bg-white">
+          <div class="quote-content flex-grow-1 pe-3">
+            <blockquote class="quote-text m-0 fst-italic">"{{ item.quote }}"</blockquote>
           </div>
           
-          <div class="footer-actions">
-            <!-- ✏️ Skickar med det nya unika quoteId till URL och state -->
+          <!-- d-flex och gap-2 lägger redigera- och radera-knapparna prydligt intill varandra -->
+          <div class="footer-actions d-flex gap-2">
             <button class="edit-btn" 
                 [routerLink]="['/books', id(), 'edit-quote', item.quoteId]" 
                 [state]="{ quote: item }" 
@@ -27,7 +32,6 @@
                 <fa-icon [icon]="iconEdit"></fa-icon>
             </button>
 
-            <!-- 🗑️ Radera-knapp -->
             <button class="delete-btn" (click)="deleteQuote(item, $event)" title="Radera citat">
               <fa-icon [icon]="iconTrash"></fa-icon>
             </button>

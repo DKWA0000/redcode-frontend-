@@ -1,26 +1,37 @@
-<!-- src/app/pages/edit-quote/edit-quote.html -->
-<div class="edit-quote-container">
+<!-- my-5 ger marginal topp/botten, container sätter strukturen -->
+<div class="container edit-quote-container my-5">
   
-  <h2>Redigera citat</h2>
-  <p class="subtitle">Nuvarande: "{{ currentQuoteText() }}"</p>
+  <h2 class="mb-1">Redigera citat</h2>
 
   <form [formGroup]="quoteForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="quote">Citattext:</label>
+    
+    <!-- mb-4 ger avståndet ner till knapparna -->
+    <div class="form-group mb-4">
+      <label for="quote" class="d-block mb-2">Citattext:</label>
+      <!-- w-100 ser till att den tar 100% bredd -->
       <textarea 
         id="quote" 
         formControlName="quote" 
+        class="w-100"
         placeholder="Ändra citatet här..." 
         rows="5"
         required>
       </textarea>
     </div>
+
+    <!-- 🌟 HÄR ÄR LÖSNINGEN: Vi använder din befintliga klass .button-group -->
     <div class="button-group">
-    <button [routerLink]="['/books', bookId, 'quotes']" class="back-btn"> Avbryt</button>
-    <button type="submit" class="save-btn" [disabled]="!quoteForm.value.quote?.trim()">
-      Spara ändringar
-    </button>
+      
+      <!-- Spara-knappen till vänster (Om du vill att den ska sträcka ut sig kan du lägga till klassen w-100 eller flex-grow-1 här) -->
+      <button type="submit" class="save-btn" [disabled]="!quoteForm.value.quote?.trim()">
+        Spara ändringar
+      </button>
+
+      <!-- Avbryt-knappen till höger -->
+      <button type="button" [routerLink]="['/books', bookId, 'quotes']" class="back-btn">
+        Avbryt
+      </button>
+
     </div>
-    <!-- 🌟 RÄTTNING: Ändrat från id() till bookId (utan parenteser eftersom det är en vanlig sträng) -->
   </form>
 </div>
