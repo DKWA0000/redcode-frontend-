@@ -1,43 +1,42 @@
-<div class="login-container">
-  <h2>Login to Redcode</h2>
-  <!-- 1. Bind the HTML form to our TypeScript formGroup object -->
+<!-- my-5 ger marginal uppe och nere, container sätter grunden -->
+<div class="container login-container my-5">
+  <h2 class="mb-4 text-center">Login to Redcode</h2>
+  
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     
-    <!-- Email Field -->
-    <div class="input-group">
+    <!-- 📧 Email Field -->
+    <!-- Vi lägger [class.is-invalid] på din yttre behållare så att bakgrunden färgas röd vid fel -->
+    <div class="login-input-group mb-1" [class.is-invalid]="emailInvalid">
       <fa-icon [icon]="iconEmail" class="field-icon"></fa-icon>
       <input 
         type="email" 
         formControlName="email" 
-        placeholder="Enter your email"
-        [class.is-invalid]="emailInvalid" />
+        placeholder="Enter your email" />
     </div>
     @if (emailInvalid) {
-      <small class="error-text">Please enter a valid email address.</small>
+      <small class="error-text d-block mb-3">Please enter a valid email address.</small>
     }
 
-    <!-- Password Field -->
-    <div class="input-group">
+    <!-- 🔑 Password Field -->
+    <div class="login-input-group mb-1" [class.is-invalid]="passwordInvalid">
       <fa-icon [icon]="iconLock" class="field-icon"></fa-icon>
       <input 
         type="password" 
         formControlName="password" 
-        placeholder="Enter your password"
-        [class.is-invalid]="passwordInvalid" />
+        placeholder="Enter your password" />
     </div>
     @if (passwordInvalid) {
-      <small class="error-text">Password must be at least 6 characters long.</small>
+      <small class="error-text d-block mb-4">Password must be at least 6 characters long.</small>
     }
 
-    <!-- Submit Button -->
-    <!-- The button remains disabled until both fields pass validation rules -->
-    <button type="submit" [disabled]="loginForm.invalid">
+    <!-- 🔘 Submit Button -->
+    <button type="submit" class="login-btn" [disabled]="loginForm.invalid">
       Log In
     </button>
 
   </form>
-  <div class="register-redirect">
-    <!-- 🌟 Den nya knappen/länken -->
+
+  <div class="register-redirect mt-4 text-center">
     <button routerLink="/register" class="secondary-btn">Skapa ett konto</button>
   </div>
 </div>

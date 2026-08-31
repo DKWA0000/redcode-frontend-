@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome'; // 👈 Import the component
-import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // 👈 Import a test icon
+import { faBook } from '@fortawesome/free-solid-svg-icons'; // 👈 Import a test icon
 
 @Component({
   selector: 'app-root',
@@ -12,5 +12,5 @@ import { faCheckCircle } from '@fortawesome/free-solid-svg-icons'; // 👈 Impor
 })
 export class AppComponent {
   // Expose the icon to the template
-  iconSuccess = faCheckCircle;
+  iconBook = faBook;
 }

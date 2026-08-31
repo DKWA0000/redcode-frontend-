@@ -25,7 +25,6 @@ h2 {
   color: #555;
 }
 
-/* Den här stylar både text och datum-inputs automatiskt */
 .form-group input {
   width: 100%;
   padding: 10px;
@@ -40,13 +39,7 @@ h2 {
   outline: none;
 }
 
-.button-group {
-  display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 30px;
-}
-
+/* Sparaknappen med din originaldesign */
 .save-btn {
   background-color: #007bff;
   color: white;
@@ -62,6 +55,7 @@ h2 {
   cursor: not-allowed;
 }
 
+/* Avbrytknappen med din originaldesign */
 .cancel-btn {
   background-color: #f8f9fa;
   color: #333;
