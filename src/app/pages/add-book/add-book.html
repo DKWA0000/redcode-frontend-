@@ -1,10 +1,8 @@
-<!-- Vi använder dina klasser för utseendet, och Bootstraps 'container' för placering -->
 <div class="container form-container">
   <h2>Lägg till ny bok</h2>
 
   <form [formGroup]="bookForm" (ngSubmit)="onSubmit()">
     
-    <!-- form-group använder din styling, men vi kan använda Bootstrap för avstånd om vi vill -->
     <div class="form-group">
       <label for="title">Bokens titel</label>
       <input type="text" id="title" formControlName="title" placeholder="T.ex. Liftarens guide till galaxen" />
@@ -20,7 +18,6 @@
       <input type="date" id="date" formControlName="date" />
     </div>
 
-    <!-- Här använder vi Bootstraps Flexbox (d-flex) för att enkelt lägga knapparna till höger med rätt avstånd -->
     <div class="d-flex justify-content-end gap-2 mt-4">
       <button type="button" routerLink="/dashboard" class="cancel-btn">Avbryt</button>
       <button type="submit" [disabled]="bookForm.invalid" class="save-btn">Spara bok</button>

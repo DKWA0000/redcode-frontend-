@@ -15,7 +15,6 @@ export class CreateUser {
   private http = inject(HttpClient);
   private router = inject(Router);
 
-  // 🌟 RÄTTNING: Ändrat till 'email' och lagt till e-postvalidering
   registerForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]]
@@ -27,7 +26,6 @@ export class CreateUser {
     const newUserDto = this.registerForm.getRawValue();
     console.log('Skickar ny användare till backend...', newUserDto);
 
-    // Din apiInterceptor bygger ihop URL:en automatiskt till /api/person/createuser
     this.http.post('person/createuser', newUserDto).subscribe({
       next: () => {
         alert('Användarkonto skapat! Du skickas nu till inloggningen.');

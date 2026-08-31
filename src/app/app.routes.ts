@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { authGuard } from './auth.guard'; // 👈 Import av din funktionella guard
+import { authGuard } from './auth.guard';
 
 export const routes: Routes = [
   { 
@@ -14,16 +14,14 @@ export const routes: Routes = [
   { 
     path: 'dashboard', 
     loadComponent: () => import('./pages/dashboard/dashboard').then(m => m.Dashboard),
-    canActivate: [authGuard] // 👈 🔒 Denna rutt är nu skyddad!
+    canActivate: [authGuard] 
   },
     { 
-    // 🌟 Ny skyddad rutt för att lägga till böcker
     path: 'add-book', 
     loadComponent: () => import('./pages/add-book/add-book').then(m => m.AddBook),
     canActivate: [authGuard]
   },
   { 
-    // 🌟 Ny rutt som tar emot bokens ID dynamiskt i URLen
     path: 'edit-book/:id', 
     loadComponent: () => import('./pages/edit-book/edit-book').then(m => m.EditBook),
     canActivate: [authGuard]
@@ -34,7 +32,6 @@ export const routes: Routes = [
     canActivate: [authGuard]
   },
     { 
-    // 🌟 Ny skyddad rutt för att lägga till citat på en specifik bok
     path: 'books/:bookId/add-quote', 
     loadComponent: () => import('./pages/add-quote/add-quote').then(m => m.AddQuote),
     canActivate: [authGuard]
