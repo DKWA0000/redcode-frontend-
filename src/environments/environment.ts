@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://redcode.onrender.com/' 
+  apiUrl: 'https://redcode.onrender.com/api/' 
 };
