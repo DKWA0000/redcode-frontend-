@@ -87,45 +87,70 @@
   text-decoration: underline;
 }
 
-/* ==========================================
-   MÖRKT LÄGE FÖR INLOGGNINGSRUTAN
-   ========================================== */
+/* =======================================================
+   🟢 MÖRKT LÄGE (Korrigerat för att matcha dina exakta klasser)
+   ======================================================= */
 
-/* Gör själva formulärrutan mörkgrå med en skarp ram */
-:host-context([data-bs-theme="dark"]) .form-container,
-:host-context([data-bs-theme="dark"]) .card {
-  background-color: #161920 !important;
+/* Gör själva inloggningsrutan mörkgrå och ger den en snygg ram */
+:host-context([data-bs-theme="dark"]) .login-container {
+  background: #161920 !important;
   border: 1px solid #2d323f !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
   color: #f1f3f5 !important;
 }
 
-/* Gör rubriken (t.ex. "Logga in") och fältetiketterna helt kritvita */
-:host-context([data-bs-theme="dark"]) h2,
+/* Tvingar alla rubriker (h1, h2) inuti loginsidan att bli kritvita */
 :host-context([data-bs-theme="dark"]) h1,
-:host-context([data-bs-theme="dark"]) label,
-:host-context([data-bs-theme="dark"]) .form-label {
+:host-context([data-bs-theme="dark"]) h2 {
   color: #ffffff !important;
 }
 
-/* Gör inputfälten (användarnamn/lösenord) mörka med vit text */
-:host-context([data-bs-theme="dark"]) .form-control,
-:host-context([data-bs-theme="dark"]) input {
-  background-color: #1f232b !important;
-  color: #ffffff !important;
+/* Gör hela inmatningsraden (input-gruppen) mörkgrå */
+:host-context([data-bs-theme="dark"]) .login-input-group {
+  background: #1f232b !important;
   border: 1px solid #3d4354 !important;
 }
 
-/* Lysande blå kant när man klickar i fälten */
-:host-context([data-bs-theme="dark"]) input:focus {
-  border-color: #0d6efd !important;
-  background-color: #1f232b !important;
+/* Gör texten man skriver inuti fälten helt vit */
+:host-context([data-bs-theme="dark"]) .login-input-group input {
+  background: transparent !important; /* Låt den ärva gruppens mörka färg */
+  color: #ffffff !important;
 }
 
-/* Anpassa länkarna (t.ex. "Skapa konto") så de syns bra mot det mörka */
-:host-context([data-bs-theme="dark"]) a {
+/* Gör ikonerna (t.ex. användar- och låsikonen) ljusgråa och tydliga */
+:host-context([data-bs-theme="dark"]) .field-icon {
+  color: #adb5bd !important;
+}
+
+/* Blå lysande ram runt fältet när man klickar i det */
+:host-context([data-bs-theme="dark"]) .login-input-group:focus-within {
+  border-color: #0d6efd !important;
+  box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+}
+
+/* Om fältet blir ogiltigt (fel inloggning) i mörkt läge */
+:host-context([data-bs-theme="dark"]) .login-input-group.is-invalid {
+  background-color: #2c1a1d !important;
+  border-color: #dc3545 !important;
+}
+
+/* Uppdatera inloggningsknappen till Bootstraps mörka gröna eller behåll blå med skarpare kontrast */
+:host-context([data-bs-theme="dark"]) .login-btn {
+  background: #198754 !important; /* Grön knapp poppar bäst mot mörk bakgrund */
+}
+:host-context([data-bs-theme="dark"]) .login-btn:hover:not(:disabled) {
+  background-color: #157347 !important;
+}
+:host-context([data-bs-theme="dark"]) .login-btn:disabled {
+  background: #2b303c !important;
+  color: #6c757d !important;
+  border: 1px solid #3d4354 !important;
+}
+
+/* Ändra sekundära knappar (t.ex. "Skapa konto"-länken) så den lyser upp snyggt */
+:host-context([data-bs-theme="dark"]) .secondary-btn {
   color: #0d6efd !important;
 }
-:host-context([data-bs-theme="dark"]) a:hover {
-  color: #0a58ca !important;
+:host-context([data-bs-theme="dark"]) .secondary-btn:hover {
+  color: #3b82f6 !important;
 }
