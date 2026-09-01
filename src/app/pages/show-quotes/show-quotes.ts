@@ -1,4 +1,5 @@
-import { Component, inject, signal, input, effect } from '@angular/core';
+// 🟢 FIX: Lagt till OnInit i själva import-listan här under
+import { Component, inject, signal, OnInit } from '@angular/core'; 
 import { HttpClient } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { FaIconComponent } from '@fortawesome/angular-fontawesome';
@@ -17,26 +18,20 @@ interface Quote {
   templateUrl: './show-quotes.html',
   styleUrl: './show-quotes.css'
 })
-export class ShowQuotes {
+export class ShowQuotes implements OnInit { 
   private http = inject(HttpClient);
 
-  id = input.required<string>(); 
-  quotes = signal<Quote[]>([]);
+  quotes = signal<Quote[]>([]); 
 
   iconTrash = faTrash;
   iconEdit = faPen;
 
-  constructor() {
-    effect(() => {
-      const currentId = this.id();
-      if (currentId) {
-        this.fetchQuotes(currentId);
-      }
-    });
+  ngOnInit() {
+    this.fetchQuotes();
   }
 
-  fetchQuotes(bookId: string) {
-    this.http.get<Quote[]>(`quote/${bookId}`).subscribe({
+  fetchQuotes() {
+    this.http.get<Quote[]>('quote').subscribe({
       next: (data) => this.quotes.set(data),
       error: (err) => console.error('Kunde inte hämta citat:', err)
     });

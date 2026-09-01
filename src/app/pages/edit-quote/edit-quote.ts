@@ -21,11 +21,10 @@ export class EditQuote implements OnInit {
   private router = inject(Router);
   private route = inject(ActivatedRoute);
 
-  bookId!: string; 
+  // 🟢 Städat bort bookId helt!
   quoteId!: number; 
   currentQuoteText = signal<string>('Laddar citat...');
   
-  // 🌟 Spara temporärt state från constructorn
   private passedQuoteFromNavigation: Quote | null = null;
 
   quoteForm = this.fb.group({
@@ -33,7 +32,6 @@ export class EditQuote implements OnInit {
   });
 
   constructor() {
-    // 🌟 RÄTTNING: getCurrentNavigation MÅSTE köras här i constructorn för att inte bli null!
     const navigation = this.router.getCurrentNavigation();
     const stateQuote = navigation?.extras.state?.['quote'] as Quote;
     if (stateQuote) {
@@ -42,17 +40,14 @@ export class EditQuote implements OnInit {
   }
 
   ngOnInit() {
-    const bookIdParam = this.route.snapshot.paramMap.get('id');
+    // 🟢 Hämtar endast quoteIdParam nu eftersom routen är 'edit-quote/:quoteId'
     const quoteIdParam = this.route.snapshot.paramMap.get('quoteId');
 
-    if (bookIdParam) this.bookId = bookIdParam;
     if (quoteIdParam) this.quoteId = +quoteIdParam;
 
-    // 🌟 Kontrollera om vi fick med ett state från constructorn
     if (this.passedQuoteFromNavigation) {
       this.setupFormData(this.passedQuoteFromNavigation.quote);
     } else if (this.quoteId) {
-      // Fallback om sidan laddas om (F5): hämta listan och leta upp rätt quoteId
       this.fetchAndFindQuote();
     }
   }
@@ -63,16 +58,17 @@ export class EditQuote implements OnInit {
   }
 
   fetchAndFindQuote() {
-    this.http.get<Quote[]>(`quote/${this.bookId}`).subscribe({
+    // 🟢 Ändrat anrop till att hämta från det globala 'quote'-API:et
+    this.http.get<Quote[]>('quote').subscribe({
       next: (quotesList) => {
         const foundQuote = quotesList.find(q => q.quoteId === this.quoteId);
         if (foundQuote) {
           this.setupFormData(foundQuote.quote);
         } else {
-          this.router.navigate(['/books', this.bookId, 'quotes']);
+          this.router.navigate(['/quotes']); // 🟢 Navigera till den globala listan
         }
       },
-      error: () => this.router.navigate(['/books', this.bookId, 'quotes'])
+      error: () => this.router.navigate(['/quotes']) // 🟢 Navigera till den globala listan
     });
   }
 
@@ -89,7 +85,7 @@ export class EditQuote implements OnInit {
     this.http.patch('quote', updatedQuote).subscribe({
       next: () => {
         console.log('Citatet uppdaterades framgångsrikt!');
-        this.router.navigate(['/books', this.bookId, 'quotes']);
+        this.router.navigate(['/quotes']); // 🟢 Gå tillbaka till globala listan efter lyckad sparning
       },
       error: (err) => {
         console.error('Kunde inte uppdatera citatet i backend:', err);

@@ -1,14 +1,14 @@
 <div class="container quotes-container my-5">
   
   <div class="d-flex justify-content-between align-items-center mb-4 pb-2 border-bottom">
-    <h2 class="m-0">Citat från boken</h2>
-    <button [routerLink]="['/books', id(), 'add-quote']" class="add-btn">+ Nytt citat</button>
+    <h2 class="m-0">Alla Citat</h2>
+    <button [routerLink]="['/add-quote']" class="add-btn">+ Nytt citat</button>
   </div>
 
-  <a routerLink="/dashboard" class="back-btn d-inline-block mb-4">← Tillbaka till böcker</a>
+  <!-- 🟢 Gamla back-btn-länken är helt borttagen härifrån! -->
   
   @if (quotes().length === 0) {
-    <p class="no-quotes text-center p-4 border rounded bg-light text-muted">Inga citat hittades för denna bok.</p>
+    <p class="no-quotes text-center p-4 border rounded bg-light text-muted">Inga citat hittades i applikationen.</p>
   } @else {
     <ul class="quotes-list list-unstyled d-flex flex-column gap-3">
       @for (item of quotes(); track item.quoteId) {
@@ -20,7 +20,7 @@
           
           <div class="footer-actions d-flex gap-2">
             <button class="edit-btn" 
-                [routerLink]="['/books', id(), 'edit-quote', item.quoteId]" 
+                [routerLink]="['/edit-quote', item.quoteId]" 
                 [state]="{ quote: item }" 
                 title="Redigera citat">
                 <fa-icon [icon]="iconEdit"></fa-icon>

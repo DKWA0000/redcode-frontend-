@@ -23,7 +23,8 @@
         Spara citat
       </button>
 
-      <button type="button" [routerLink]="['/books', bookId(), 'quotes']" class="back-btn">
+      <!-- 🟢 ÄNDRAD: Länkar nu direkt till /quotes istället för en specifik bok -->
+      <button type="button" routerLink="/quotes" class="back-btn">
         Avbryt
       </button>
 

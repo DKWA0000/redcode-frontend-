@@ -1,1 +1,191 @@
-/* You can add global styles to this file, and also import other style files */
+/* Garanterar att mörkt läge slår igenom globalt på hela applikationen */
+[data-bs-theme="dark"] {
+  --bs-body-bg: #000000 !important;
+  --bs-body-bg-rgb: 0, 0, 0 !important;
+  --bs-body-color: #e0e0e0 !important;
+}
+
+[data-bs-theme="dark"] body,
+[data-bs-theme="dark"] #wrapper,
+[data-bs-theme="dark"] #page-content-wrapper,
+[data-bs-theme="dark"] .bg-light {
+  background-color: #000000 !important;
+}
+
+[data-bs-theme="dark"] .bg-white {
+  background-color: #161920 !important; /* Uppdaterad till #161920 för enhetlighet */
+  color: #e0e0e0 !important;
+  border: 1px solid #2d323f !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-bs-theme="dark"] .bg-white.navbar {
+  background-color: #000000 !important;
+  border-bottom: 1px solid #1a1a1a !important;
+}
+
+/* KONTRAST-JUSTERINGAR FÖR DET SVARTA LÄGET */
+[data-bs-theme="dark"] {
+  --bs-body-color: #f1f3f5 !important;
+  --bs-secondary-color: #adb5bd !important;
+}
+[data-bs-theme="dark"] .text-muted {
+  color: #adb5bd !important;
+}
+
+/* 1. Rubriker (H1, H2, H3) ska vara helt kritvita för att poppa ut direkt */
+[data-bs-theme="dark"] h1, 
+[data-bs-theme="dark"] h2, 
+[data-bs-theme="dark"] h3, 
+[data-bs-theme="dark"] h4,
+[data-bs-theme="dark"] .add-book-container h2,
+[data-bs-theme="dark"] .edit-book-container h2 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+}
+
+/* 2. Justera knappar så de inte smälter in */
+[data-bs-theme="dark"] .btn-outline-dark {
+  color: #ffffff !important;
+  border-color: #495057 !important;
+}
+[data-bs-theme="dark"] .btn-outline-dark:hover {
+  background-color: #212529 !important;
+}
+
+/* 3. Gör skiljelinjer ljusare */
+[data-bs-theme="dark"] .border-bottom {
+  border-bottom: 1px solid #2d323f !important;
+}
+
+/* 4. Öka kontrasten i alla formulärfält (Inputs / Textareas) */
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] textarea,
+[data-bs-theme="dark"] input {
+  background-color: #1f232b !important;
+  color: #ffffff !important;
+  border: 1px solid #3d4354 !important;
+}
+[data-bs-theme="dark"] .form-control::placeholder,
+[data-bs-theme="dark"] textarea::placeholder {
+  color: #6c757d !important;
+}
+[data-bs-theme="dark"] .form-control:focus,
+[data-bs-theme="dark"] textarea:focus,
+[data-bs-theme="dark"] input:focus {
+  border-color: #0d6efd !important;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25) !important;
+  background-color: #1f232b !important;
+}
+
+/* KONTRAST FÖR BOKLISTAN OCH CITATLISTAN I MÖRKT LÄGE */
+[data-bs-theme="dark"] .action-card {
+  background-color: #161920 !important;
+  border: 1px solid #2d323f !important;
+  color: #f1f3f5 !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+[data-bs-theme="dark"] .action-card:hover,
+[data-bs-theme="dark"] .action-card:focus {
+  border-color: #0d6efd !important;
+  background-color: #1c2029 !important;
+}
+
+[data-bs-theme="dark"] .quote-item {
+  background-color: #161920 !important;
+  border: 1px solid #2d323f !important;
+  color: #f1f3f5 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-bs-theme="dark"] .book-title,
+[data-bs-theme="dark"] .quote-text {
+  color: #ffffff !important;
+}
+[data-bs-theme="dark"] .author-text,
+[data-bs-theme="dark"] .date-text {
+  color: #adb5bd !important;
+}
+
+[data-bs-theme="dark"] .edit-btn,
+[data-bs-theme="dark"] .delete-btn,
+[data-bs-theme="dark"] .action-icons button {
+  background-color: #212529 !important;
+  border: 1px solid #3d4354 !important;
+  color: #f1f3f5 !important;
+}
+[data-bs-theme="dark"] .edit-btn:hover {
+  background-color: #0d6efd !important;
+  color: #ffffff !important;
+}
+[data-bs-theme="dark"] .delete-btn:hover {
+  background-color: #dc3545 !important;
+  color: #ffffff !important;
+}
+
+/* KONTRAST FÖR ALLA SKAPA & REDIGERA-CONTAINERS (BÖCKER & CITAT) */
+[data-bs-theme="dark"] .add-book-container,
+[data-bs-theme="dark"] .edit-book-container,
+[data-bs-theme="dark"] .add-quote-container,
+[data-bs-theme="dark"] .edit-quote-container,
+[data-bs-theme="dark"] .card {
+  background-color: #161920 !important; /* Tvingar fram den mörka rutan */
+  border: 1px solid #2d323f !important;  /* Tydlig grå ram */
+  padding: 2rem !important;
+  border-radius: 0.5rem !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+  color: #f1f3f5 !important;
+}
+
+[data-bs-theme="dark"] label,
+[data-bs-theme="dark"] .form-label {
+  color: #ffffff !important; /* Gör text som "Titel", "Författare" vit */
+}
+
+/* Form-knappar */
+[data-bs-theme="dark"] .save-btn,
+[data-bs-theme="dark"] button[type="submit"],
+[data-bs-theme="dark"] .btn-success {
+  background-color: #198754 !important;
+  border: 1px solid #198754 !important;
+  color: #ffffff !important;
+  font-weight: 600;
+}
+[data-bs-theme="dark"] .save-btn:hover,
+[data-bs-theme="dark"] button[type="submit"]:hover {
+  background-color: #157347 !important;
+}
+[data-bs-theme="dark"] button:disabled,
+[data-bs-theme="dark"] .save-btn:disabled {
+  background-color: #2b303c !important;
+  border-color: #3d4354 !important;
+  color: #6c757d !important;
+}
+
+[data-bs-theme="dark"] .back-btn,
+[data-bs-theme="dark"] .btn-secondary {
+  background-color: #212529 !important;
+  border: 1px solid #3d4354 !important;
+  color: #f1f3f5 !important;
+}
+[data-bs-theme="dark"] .back-btn:hover,
+[data-bs-theme="dark"] .btn-secondary:hover {
+  background-color: #323741 !important;
+  color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] app-add-book,
+[data-bs-theme="dark"] app-edit-book,
+[data-bs-theme="dark"] .add-book-container,
+[data-bs-theme="dark"] .edit-book-container {
+  background-color: #161920 !important; /* Tvingar bok-sidorna att bli mörkgrå paneler */
+  color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] app-add-book h1,
+[data-bs-theme="dark"] app-add-book h2,
+[data-bs-theme="dark"] app-edit-book h1,
+[data-bs-theme="dark"] app-edit-book h2 {
+  color: #ffffff !important; /* Garanterar helt kritvita rubriker inuti boksidorna */
+}
