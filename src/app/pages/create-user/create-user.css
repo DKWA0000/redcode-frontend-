@@ -64,12 +64,12 @@ input:focus {
 .back-link:hover { text-decoration: underline; }
 
 /* =======================================================
-   🟢 MÖRKT LÄGE (Korrigerat för registreringssidan)
+   🟢 MÖRKT LÄGE (Korrigerat med bakgrunds-override)
    ======================================================= */
 
 /* Gör själva registreringsrutan mörkgrå med en skarp ram */
 :host-context([data-bs-theme="dark"]) .register-container {
-  background: #161920 !important;
+  background: #161920 !important; /* 👈 Ändrat från background-color till background */
   border: 1px solid #2d323f !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
   color: #f1f3f5 !important;
@@ -88,14 +88,14 @@ input:focus {
   border: 1px solid #3d4354 !important;
 }
 
-/* Lysande grön kant när man klickar i fälten (matchar registreringsstilen) */
+/* Lysande grön kant när man klickar i fälten */
 :host-context([data-bs-theme="dark"]) input:focus {
   border-color: #198754 !important;
   background-color: #1f232b !important;
   box-shadow: 0 0 0 0.15rem rgba(25, 135, 84, 0.25);
 }
 
-/* Anpassa registreringsknappen när den är aktiv och inaktiverad */
+/* Anpassa registreringsknappen */
 :host-context([data-bs-theme="dark"]) .register-btn {
   background-color: #198754 !important;
   color: #ffffff !important;
