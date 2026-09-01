@@ -63,45 +63,56 @@ input:focus {
 .back-link { color: #007bff; text-decoration: none; font-size: 0.9rem; }
 .back-link:hover { text-decoration: underline; }
 
-/* ==========================================
-   MÖRKT LÄGE FÖR INLOGGNINGSRUTAN
-   ========================================== */
+/* =======================================================
+   🟢 MÖRKT LÄGE (Korrigerat för registreringssidan)
+   ======================================================= */
 
-/* Gör själva formulärrutan mörkgrå med en skarp ram */
-:host-context([data-bs-theme="dark"]) .form-container,
-:host-context([data-bs-theme="dark"]) .card {
-  background-color: #161920 !important;
+/* Gör själva registreringsrutan mörkgrå med en skarp ram */
+:host-context([data-bs-theme="dark"]) .register-container {
+  background: #161920 !important;
   border: 1px solid #2d323f !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
   color: #f1f3f5 !important;
 }
 
-/* Gör rubriken (t.ex. "Logga in") och fältetiketterna helt kritvita */
+/* Gör rubriken och fältetiketterna helt kritvita */
 :host-context([data-bs-theme="dark"]) h2,
-:host-context([data-bs-theme="dark"]) h1,
-:host-context([data-bs-theme="dark"]) label,
-:host-context([data-bs-theme="dark"]) .form-label {
+:host-context([data-bs-theme="dark"]) label {
   color: #ffffff !important;
 }
 
-/* Gör inputfälten (användarnamn/lösenord) mörka med vit text */
-:host-context([data-bs-theme="dark"]) .form-control,
+/* Gör inmatningsfälten mörka med vit text */
 :host-context([data-bs-theme="dark"]) input {
   background-color: #1f232b !important;
   color: #ffffff !important;
   border: 1px solid #3d4354 !important;
 }
 
-/* Lysande blå kant när man klickar i fälten */
+/* Lysande grön kant när man klickar i fälten (matchar registreringsstilen) */
 :host-context([data-bs-theme="dark"]) input:focus {
-  border-color: #0d6efd !important;
+  border-color: #198754 !important;
   background-color: #1f232b !important;
+  box-shadow: 0 0 0 0.15rem rgba(25, 135, 84, 0.25);
 }
 
-/* Anpassa länkarna (t.ex. "Skapa konto") så de syns bra mot det mörka */
-:host-context([data-bs-theme="dark"]) a {
+/* Anpassa registreringsknappen när den är aktiv och inaktiverad */
+:host-context([data-bs-theme="dark"]) .register-btn {
+  background-color: #198754 !important;
+  color: #ffffff !important;
+}
+:host-context([data-bs-theme="dark"]) .register-btn:hover:not(:disabled) {
+  background-color: #157347 !important;
+}
+:host-context([data-bs-theme="dark"]) .register-btn:disabled {
+  background-color: #2b303c !important;
+  color: #6c757d !important;
+  border: 1px solid #3d4354 !important;
+}
+
+/* Anpassa "Tillbaka till logga in"-länken */
+:host-context([data-bs-theme="dark"]) .back-link {
   color: #0d6efd !important;
 }
-:host-context([data-bs-theme="dark"]) a:hover {
-  color: #0a58ca !important;
+:host-context([data-bs-theme="dark"]) .back-link:hover {
+  color: #3b82f6 !important;
 }
