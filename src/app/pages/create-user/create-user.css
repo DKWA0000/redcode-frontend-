@@ -62,3 +62,46 @@ input:focus {
 
 .back-link { color: #007bff; text-decoration: none; font-size: 0.9rem; }
 .back-link:hover { text-decoration: underline; }
+
+/* ==========================================
+   MÖRKT LÄGE FÖR INLOGGNINGSRUTAN
+   ========================================== */
+
+/* Gör själva formulärrutan mörkgrå med en skarp ram */
+:host-context([data-bs-theme="dark"]) .form-container,
+:host-context([data-bs-theme="dark"]) .card {
+  background-color: #161920 !important;
+  border: 1px solid #2d323f !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+  color: #f1f3f5 !important;
+}
+
+/* Gör rubriken (t.ex. "Logga in") och fältetiketterna helt kritvita */
+:host-context([data-bs-theme="dark"]) h2,
+:host-context([data-bs-theme="dark"]) h1,
+:host-context([data-bs-theme="dark"]) label,
+:host-context([data-bs-theme="dark"]) .form-label {
+  color: #ffffff !important;
+}
+
+/* Gör inputfälten (användarnamn/lösenord) mörka med vit text */
+:host-context([data-bs-theme="dark"]) .form-control,
+:host-context([data-bs-theme="dark"]) input {
+  background-color: #1f232b !important;
+  color: #ffffff !important;
+  border: 1px solid #3d4354 !important;
+}
+
+/* Lysande blå kant när man klickar i fälten */
+:host-context([data-bs-theme="dark"]) input:focus {
+  border-color: #0d6efd !important;
+  background-color: #1f232b !important;
+}
+
+/* Anpassa länkarna (t.ex. "Skapa konto") så de syns bra mot det mörka */
+:host-context([data-bs-theme="dark"]) a {
+  color: #0d6efd !important;
+}
+:host-context([data-bs-theme="dark"]) a:hover {
+  color: #0a58ca !important;
+}
