@@ -1,4 +1,4 @@
-import { Component, inject, signal, input } from '@angular/core';
+import { Component, inject, signal } from '@angular/core'; // 👈 Tog bort 'input' eftersom det inte behövs längre
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -14,7 +14,7 @@ export class AddQuote {
   private http = inject(HttpClient);
   private router = inject(Router);
 
-  bookId = input.required<string>();
+  // 🟢 Raden med bookId = input.required<string>() är helt borttagen
   
   quoteText = signal<string>('');
 
@@ -24,15 +24,16 @@ export class AddQuote {
       return;
     }
 
+    // 🟢 Skickar nu endast med 'quote' i bodyn till ditt API
     const newQuote = {
-      bookid: Number(this.bookId()),
       quote: this.quoteText()
     };
 
     this.http.post('quote', newQuote).subscribe({
       next: () => {
         console.log('Citat sparat!');
-        this.router.navigate(['/books', this.bookId(), 'quotes']);
+        // 🟢 Ändrad navigering: Går tillbaka till den globala citatlistan
+        this.router.navigate(['/quotes']);
       },
       error: (err) => {
         console.error('Kunde inte spara citat:', err);

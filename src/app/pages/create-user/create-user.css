@@ -23,7 +23,7 @@ input {
 }
 
 input:focus {
-  border-color: #28a745; /* Tips: Gör ramen grön vid klick för att matcha din knapp! */
+  border-color: #28a745; 
   outline: none;
 }
 
@@ -55,7 +55,7 @@ input:focus {
 }
 
 .register-btn:hover:not(:disabled) {
-  background-color: #218838; /* Blir lite mörkare grön när man hovrar */
+  background-color: #218838; 
 }
 
 .register-btn:disabled { background-color: #ccc; cursor: not-allowed; }

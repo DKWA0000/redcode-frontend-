@@ -25,8 +25,8 @@
         Spara ändringar
       </button>
 
-      <!-- Avbryt-knappen till höger -->
-      <button type="button" [routerLink]="['/books', bookId, 'quotes']" class="back-btn">
+      <!-- 🟢 ÄNDRAD: Länkar nu direkt till /quotes istället för den gamla bok-routen -->
+      <button type="button" routerLink="/quotes" class="back-btn">
         Avbryt
       </button>
 

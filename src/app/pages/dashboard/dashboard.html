@@ -22,10 +22,6 @@
         
         <div class="card-actions" (click)="$event.stopPropagation()">
           
-          <button class="quote-btn" [routerLink]="['/books', book.id, 'quotes']">
-            Visa citat
-          </button>
-          
           <div class="action-icons">
             <button class="edit-btn" 
                     [routerLink]="['/edit-book', book.id]" 

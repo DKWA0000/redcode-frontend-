@@ -1,11 +1,8 @@
-<!-- my-5 ger marginal uppe och nere, container sätter grunden -->
 <div class="container login-container my-5">
   <h2 class="mb-4 text-center">Login to Redcode</h2>
   
   <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     
-    <!-- 📧 Email Field -->
-    <!-- Vi lägger [class.is-invalid] på din yttre behållare så att bakgrunden färgas röd vid fel -->
     <div class="login-input-group mb-1" [class.is-invalid]="emailInvalid">
       <fa-icon [icon]="iconEmail" class="field-icon"></fa-icon>
       <input 
@@ -17,7 +14,6 @@
       <small class="error-text d-block mb-3">Please enter a valid email address.</small>
     }
 
-    <!-- 🔑 Password Field -->
     <div class="login-input-group mb-1" [class.is-invalid]="passwordInvalid">
       <fa-icon [icon]="iconLock" class="field-icon"></fa-icon>
       <input 
@@ -29,7 +25,6 @@
       <small class="error-text d-block mb-4">Password must be at least 6 characters long.</small>
     }
 
-    <!-- 🔘 Submit Button -->
     <button type="submit" class="login-btn" [disabled]="loginForm.invalid">
       Log In
     </button>

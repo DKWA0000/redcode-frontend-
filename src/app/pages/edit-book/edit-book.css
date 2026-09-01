@@ -1,3 +1,6 @@
+/* ==========================================
+   1. STANDARDSTILAR (LJUST LÄGE SOM STANDARD)
+   ========================================== */
 .form-container {
   max-width: 500px;
   margin: 60px auto;
@@ -70,4 +73,53 @@ h2 {
 
 .cancel-btn:hover {
   background-color: #e2e6ea;
+}
+
+
+/* ==========================================
+   2. MÖRKT LÄGE (AKTIVERAS VIA SIDERBAR-KNAPPEN)
+   ========================================== */
+
+/* Gör rutan mörkgrå och ger en skarp grå kant */
+:host-context([data-bs-theme="dark"]) .form-container {
+  background-color: #161920 !important;
+  border: 1px solid #2d323f !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* Gör rubriken och etiketterna helt kritvita */
+:host-context([data-bs-theme="dark"]) h2 {
+  color: #ffffff !important;
+}
+:host-context([data-bs-theme="dark"]) .form-group label {
+  color: #ffffff !important;
+}
+
+/* Gör inputfälten mörka med vit text */
+:host-context([data-bs-theme="dark"]) .form-group input {
+  background-color: #1f232b !important;
+  color: #ffffff !important;
+  border: 1px solid #3d4354 !important;
+}
+:host-context([data-bs-theme="dark"]) .form-group input:focus {
+  border-color: #0d6efd !important;
+}
+
+/* Anpassa knapparna för mörkt läge */
+:host-context([data-bs-theme="dark"]) .save-btn {
+  background-color: #198754 !important; /* Grön sparaknapp för skarpare kontrast mot det mörka */
+}
+:host-context([data-bs-theme="dark"]) .save-btn:disabled {
+  background-color: #2b303c !important;
+  color: #6c757d !important;
+}
+
+:host-context([data-bs-theme="dark"]) .cancel-btn {
+  background-color: #212529 !important;
+  color: #f1f3f5 !important;
+  border: 1px solid #3d4354 !important;
+}
+:host-context([data-bs-theme="dark"]) .cancel-btn:hover {
+  background-color: #323741 !important;
+  color: #ffffff !important;
 }
