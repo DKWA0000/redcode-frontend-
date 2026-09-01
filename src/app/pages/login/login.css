@@ -88,12 +88,12 @@
 }
 
 /* =======================================================
-   🟢 MÖRKT LÄGE (Korrigerat för att matcha dina exakta klasser)
+   🟢 MÖRKT LÄGE (Korrigerat med bakgrunds-override)
    ======================================================= */
 
 /* Gör själva inloggningsrutan mörkgrå och ger den en snygg ram */
 :host-context([data-bs-theme="dark"]) .login-container {
-  background: #161920 !important;
+  background: #161920 !important; /* 👈 Ändrat från background-color till background */
   border: 1px solid #2d323f !important;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6) !important;
   color: #f1f3f5 !important;
@@ -113,7 +113,7 @@
 
 /* Gör texten man skriver inuti fälten helt vit */
 :host-context([data-bs-theme="dark"]) .login-input-group input {
-  background: transparent !important; /* Låt den ärva gruppens mörka färg */
+  background: transparent !important;
   color: #ffffff !important;
 }
 
@@ -134,9 +134,9 @@
   border-color: #dc3545 !important;
 }
 
-/* Uppdatera inloggningsknappen till Bootstraps mörka gröna eller behåll blå med skarpare kontrast */
+/* Uppdatera inloggningsknappen */
 :host-context([data-bs-theme="dark"]) .login-btn {
-  background: #198754 !important; /* Grön knapp poppar bäst mot mörk bakgrund */
+  background: #198754 !important;
 }
 :host-context([data-bs-theme="dark"]) .login-btn:hover:not(:disabled) {
   background-color: #157347 !important;
@@ -147,7 +147,7 @@
   border: 1px solid #3d4354 !important;
 }
 
-/* Ändra sekundära knappar (t.ex. "Skapa konto"-länken) så den lyser upp snyggt */
+/* Ändra sekundära knappar */
 :host-context([data-bs-theme="dark"]) .secondary-btn {
   color: #0d6efd !important;
 }
